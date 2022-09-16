@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="card col-md-5 mr-3">
+            <h4 class="text-center pt-2">
+                Общий доход за сегодня
+            </h4>
+            <h1 class="text-center" style="color:green;">${{ total_revenue }}</h1>
+        </div>
+
+
+        <div class="card col-md-5 mr-3">
+            <h4 class="text-center pt-2">
+                Количество заказов сегодня
+            </h4>
+            <h1 class="text-center" style="color:#ad0003;">{{ total_orders }}</h1>
+        </div>
+    </div>
+    <div class="row justify-content-center ">
+        <div class="col-md-12 mt-5">
+            <table class="table table-hover tabel-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Номер заказа</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Емейл</th>
+                    <th scope="col">Улица</th>
+                    <th scope="col">Детали Заказа</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                <tr>
+                    <th scope="row">{{ order.pk }}</th>
+                    <td>{{ order.price }}</td>
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.email }}</td>
+                    <td>{{ order.street }}</td>
+                    <td><a href="{% url 'order-details' order.pk %}"><i class="far fa-edit"></i> </a> </td>
+
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
