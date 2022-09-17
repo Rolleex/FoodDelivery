@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-5 col-sm-12 p-4 text-center">
+            <h1>Заказ оформлен!</h1>
+            <p>С вами скоро свяжутся </p>
+            <a href="{% url 'home' %}">Вернуться на главную страницу</a>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5 col-sm-6">
+            <h3 class="pb-3">Счет к оплате:</h3>
+            {% for item in items.all %}
+            <p>{{ item.name }} <span class="pl-3">{{ item.price }}</span></p>
+            {% endfor %}
+
+            <p class="font-weight-bold pt-4">Итого: {{ price }}</p>
+        </div>
+        <div class="col-md-5 col-sm-6">
+            <h3 class="pb-3">Информация о заказе:</h3>
+
+            <p>Имя: <span class="pl-3">{{ order.name }}</span></p>
+            <p>Емейл: <span class="pl-3">{{ order.email }}</span></p>
+            <p>Улица: <span class="pl-3">{{ order.street }}</span></p>
+            <p>Город: <span class="pl-3">{{ order.city }}</span></p>
+
+
+        </div>
+        <a href="{% url 'home' %}">Вернуться на главную страницу</a>
+    </div>
+</div>
+{% endblock content %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'customer',
     'restaurant',
+
     'allauth',
     'allauth.account',
     'crispy_forms',
@@ -138,3 +139,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_ADAPTER = 'restaurant.account_adapter.NoNewUsersAccountAdapter'
 LOGIN_REDIRECT_URL = 'dashboard'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+
+
+
+
+
